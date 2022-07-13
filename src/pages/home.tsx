@@ -1,7 +1,8 @@
 import React from 'react';
 import './home.scss';
 import headerBg from '../images/header.png';
-import { AdministerChart } from '../components/administer-char1';
+import { AdministerChart } from '../components/administer-chart1';
+import { CaseSortChart } from '../components/case-sort-chart2';
 
 export const Home = () => {
   return (
@@ -10,6 +11,7 @@ export const Home = () => {
       <main>
         <section className="section1">
           <AdministerChart />
+          <CaseSortChart />
         </section>
         <section className="bordered section2"></section>
         <section className="bordered section3"></section>

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import * as echarts from 'echarts';
-import { px } from '../shared/px';
 import { baseEchartsOptions } from '../shared/base-echarts-options';
 import { createEchartsOptions } from '../shared/create-echarts-options';
 
@@ -59,7 +58,7 @@ export const AdministerChart = () => {
   }, []);
 
   return (
-    <div className="bordered 管辖统计">
+    <div className="bordered administer">
       <h2>案发派出所管辖统计</h2>
       <div ref={divRef} className="chart"></div>
     </div>

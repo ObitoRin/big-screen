@@ -5,6 +5,7 @@ import { AdministerChart } from '../components/administer-chart1';
 import { CaseSortChart } from '../components/case-sort-chart2';
 
 export const Home = () => {
+  const year = new Date().getFullYear()
   return (
     <div className="home">
       <header style={{ backgroundImage: `url(${headerBg})` }} />
@@ -18,6 +19,9 @@ export const Home = () => {
         <section className="bordered section4"></section>
         <section className="bordered section5"></section>
       </main>
+      <footer>
+        @xk-{year}
+      </footer>
     </div>
   );
 };

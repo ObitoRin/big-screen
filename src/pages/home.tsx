@@ -7,6 +7,9 @@ import { BothTrendsChart } from '../components/both-trends-chart3';
 import { TimeTrendsChart } from '../components/time-trends-chart4';
 import { CombatGainsChart } from '../components/combat-gains-chart5';
 import { MapChart } from '../components/map-chart6';
+import { AgeChart7 } from '../components/age-chart7';
+import { AgeChart8 } from '../components/age-chart8';
+import { AgeChart9 } from '../components/age-chart9';
 
 export const Home = () => {
   const year = new Date().getFullYear();
@@ -27,6 +30,14 @@ export const Home = () => {
         </section>
         <section className="section4">
           <MapChart />
+          <div className="bordered age">
+            <h2>犯罪人员年龄段分布</h2>
+            <div className="charts">
+              <AgeChart7 />
+              <AgeChart8 />
+              <AgeChart9 />
+            </div>
+          </div>
         </section>
         <section className="bordered section5"></section>
       </main>

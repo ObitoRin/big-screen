@@ -82,7 +82,8 @@
     .both-trends,
     .time-trends,
     .combat-gains,
-    .province {
+    .province,
+    .age {
       height: px(315);
       display: flex;
       flex-direction: column;
@@ -188,6 +189,24 @@
           bottom: px(10);
           right: px(10);
         }
+      }
+    }
+    .age {
+      height: px(363);
+      > .charts {
+        width: 100%;
+        flex: 1;
+        border: 1px solid salmon;
+        display: flex;
+        padding: px(30);
+      }
+      &-图1,
+      &-图2,
+      &-图3 {
+        flex: 1;
+        border: 1px solid red;
+        display: flex;
+        flex-direction: column;
       }
     }
   }

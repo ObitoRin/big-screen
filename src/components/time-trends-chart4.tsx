@@ -13,10 +13,14 @@ export const TimeTrendsChart = () => {
         xAxis: {
           type: 'category',
           boundaryGap: false,
-          data: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24]
+          data: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24],
+          splitLine: { lineStyle: { color: '#073E78' } },
+          axisTick: { show: false },
+          axisLine: { show: false }
         },
         yAxis: {
           type: 'value',
+          splitLine: { lineStyle: { color: '#073E78' } },
           axisLabel: {
             formatter(val) {
               return val * 100 + '%';

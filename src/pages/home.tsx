@@ -3,6 +3,7 @@ import './home.scss';
 import headerBg from '../images/header.png';
 import { AdministerChart } from '../components/administer-chart1';
 import { CaseSortChart } from '../components/case-sort-chart2';
+import { BothTrendsChart } from '../components/both-trends-chart3';
 
 export const Home = () => {
   const year = new Date().getFullYear()
@@ -14,7 +15,9 @@ export const Home = () => {
           <AdministerChart />
           <CaseSortChart />
         </section>
-        <section className="bordered section2"></section>
+        <section className="section2">
+          <BothTrendsChart />
+        </section>
         <section className="bordered section3"></section>
         <section className="bordered section4"></section>
         <section className="bordered section5"></section>

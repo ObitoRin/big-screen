@@ -117,7 +117,8 @@
         text-shadow: 0 0 px(3) white;
       }
       .charts {
-        width: 100%;flex: 1;
+        width: 100%;
+        flex: 1;
         display: flex;
       }
       .chart {
@@ -153,9 +154,13 @@
     .time-trends {
       height: px(363);
     }
-    .combat-gains {
+    .combat-gains,
+    .case-mode {
+      padding: 0 px(24);
       > table {
-        margin-top: px(38);
+        width: 100%;
+        margin-top: px(25);
+        table-layout: fixed;
         border-collapse: collapse;
         th,
         td {
@@ -172,6 +177,7 @@
             height: px(50);
             width: px(84);
             background: #1c2456;
+            text-align: center;
           }
         }
       }
@@ -280,6 +286,15 @@
           color: #7ab6db;
           margin-top: px(6);
           text-align: center;
+        }
+      }
+    }
+    .case-mode {
+      > table {
+        tbody {
+          td {
+            height: px(26);
+          }
         }
       }
     }

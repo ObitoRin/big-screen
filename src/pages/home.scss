@@ -79,6 +79,18 @@
     }
     > .section5 {
       grid-area: box5;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      > .row1 {
+        height: px(317);
+      }
+      > .row2 {
+        height: px(317);
+      }
+      > .row3 {
+        height: px(455);
+      }
     }
     .administer,
     .case-sort,
@@ -86,7 +98,10 @@
     .time-trends,
     .combat-gains,
     .province,
-    .age {
+    .age,
+    .case-type,
+    .case-street,
+    .case-mode {
       height: px(315);
       display: flex;
       flex-direction: column;
@@ -100,6 +115,10 @@
         line-height: px(24);
         padding: px(10) px(28);
         text-shadow: 0 0 px(3) white;
+      }
+      .charts {
+        width: 100%;flex: 1;
+        display: flex;
       }
       .chart {
         flex: 1;
@@ -197,9 +216,6 @@
     .age {
       height: px(363);
       > .charts {
-        width: 100%;
-        flex: 1;
-        display: flex;
         padding: px(30);
       }
       &-图1,

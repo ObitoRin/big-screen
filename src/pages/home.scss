@@ -196,7 +196,6 @@
       > .charts {
         width: 100%;
         flex: 1;
-        border: 1px solid salmon;
         display: flex;
         padding: px(30);
       }
@@ -252,6 +251,15 @@
         flex-shrink: 0;
         .legend {
           justify-content: flex-start;
+        }
+      }
+      &-图3 {
+        border: 1px solid #08397d;
+        h3 {
+          font-size: px(20);
+          color: #7ab6db;
+          margin-top: px(6);
+          text-align: center;
         }
       }
     }

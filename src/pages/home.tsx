@@ -11,6 +11,8 @@ import { AgeChart7 } from "../components/age-chart7";
 import { AgeChart8 } from "../components/age-chart8";
 import { AgeChart9 } from "../components/age-chart9";
 import { CaseTypeChart } from "../components/case-type-chart10";
+import { CaseStreetChart } from "../components/case-street-chart11";
+import { CaseModeChart } from "../components/case-mode-chart12";
 
 export const Home = () => {
   const year = new Date().getFullYear();
@@ -45,11 +47,14 @@ export const Home = () => {
             <h2>案发类型统计</h2>
             <div className="charts">
               <CaseTypeChart />
+              <CaseStreetChart />
             </div>
           </div>
           <div className="bordered row2 case-street">
             <h2>案发街道统计</h2>
-            <div className="charts"></div>
+            <div className="charts">
+              <CaseModeChart />
+            </div>
           </div>
           <div className="bordered row3 case-mode">
             <h2>作案手段分析</h2>

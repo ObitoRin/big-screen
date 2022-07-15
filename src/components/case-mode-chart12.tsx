@@ -5,7 +5,6 @@ import { px } from "../shared/px";
 
 export const CaseModeChart = () => {
   const divRef = useRef(null);
-  const colors = ["#F46064", "#F38E1C", "#1CDB7C", "#8D70F8", "#33A4FA"];
   const data = [
     { value: 0.08, name: "东岗路" },
     { value: 0.06, name: "段家滩" },
@@ -59,17 +58,7 @@ export const CaseModeChart = () => {
   return (
     <div className="age-图1">
       <div className="chart">
-        <div className="main" ref={divRef} />
-      </div>
-      <div className="legend">
-        <span style={{ background: colors[0] }} />
-        刑事
-        <span style={{ background: colors[1] }} />
-        民事
-        <span style={{ background: colors[2] }} />
-        经济
-        <span style={{ background: colors[3] }} />
-        其他
+        <div className="main" ref={divRef}/>
       </div>
     </div>
   );

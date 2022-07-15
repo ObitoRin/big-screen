@@ -10,6 +10,7 @@ import { MapChart } from "../components/map-chart6";
 import { AgeChart7 } from "../components/age-chart7";
 import { AgeChart8 } from "../components/age-chart8";
 import { AgeChart9 } from "../components/age-chart9";
+import { CaseTypeChart } from "../components/case-type-chart10";
 
 export const Home = () => {
   const year = new Date().getFullYear();
@@ -42,7 +43,9 @@ export const Home = () => {
         <section className="section5">
           <div className="bordered row1 case-type">
             <h2>案发类型统计</h2>
-            <div className="charts"></div>
+            <div className="charts">
+              <CaseTypeChart />
+            </div>
           </div>
           <div className="bordered row2 case-street">
             <h2>案发街道统计</h2>

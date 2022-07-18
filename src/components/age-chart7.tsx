@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from "react";
-import * as echarts from "echarts";
-import { px } from "../shared/px";
-import { createEchartsOptions } from "../shared/create-echarts-options";
+import React, { useEffect, useRef } from 'react';
+import * as echarts from 'echarts';
+import { px } from '../shared/px';
+import { createEchartsOptions } from '../shared/create-echarts-options';
 
 export const AgeChart7 = () => {
   const divRef = useRef(null);
@@ -15,29 +15,29 @@ export const AgeChart7 = () => {
         legend: { show: false },
         series: [
           {
-            name: "访问来源",
-            type: "pie",
-            radius: ["75%", "90%"],
+            name: '访问来源',
+            type: 'pie',
+            radius: ['75%', '90%'],
             avoidLabelOverlap: false,
             label: {
               show: true,
-              position: "inside",
-              textStyle: { color: "white", fontSize: px(20) },
+              position: 'inside',
+              textStyle: { color: 'white', fontSize: px(20) },
               formatter(options) {
-                return options.value * 100 + "%";
-              },
+                return options.value * 100 + '%';
+              }
             },
             labelLine: { show: false },
             itemStyle: {
-              borderColor: "#0F113A",
-              borderWidth: px(4),
+              borderColor: '#0F113A',
+              borderWidth: px(4)
             },
             data: [
-              { value: 0.2, name: "女" },
-              { value: 0.8, name: "男" },
-            ],
-          },
-        ],
+              { value: 0.2, name: '女' },
+              { value: 0.8, name: '男' }
+            ]
+          }
+        ]
       })
     );
   }, []);

@@ -2,27 +2,30 @@ import React, { useEffect, useRef } from 'react';
 import * as echarts from 'echarts';
 import { baseEchartsOptions } from '../shared/base-echarts-options';
 import { createEchartsOptions } from '../shared/create-echarts-options';
+import { random } from '../shared/random';
 
 export const AdministerChart = () => {
   const divRef = useRef(null);
+  const myChart = useRef(null);
 
-  useEffect(() => {
-    var myChart = echarts.init(divRef.current);
-    myChart.setOption(
+  const data = [
+    { name: '城关区', value: 49 },
+    { name: '七里河区', value: 38 },
+    { name: '西固区', value: 29 },
+    { name: '安宁区', value: 19 },
+    { name: '红谷区', value: 26 },
+    { name: '永登区', value: 13 },
+    { name: '皋兰区', value: 21 },
+    { name: '榆中区', value: 36 },
+    { name: '兰州新区', value: 42 }
+  ];
+
+  const renderChart = (data) => {
+    myChart.current.setOption(
       createEchartsOptions({
         ...baseEchartsOptions,
         xAxis: {
-          data: [
-            '兰州新区',
-            '兰州新区',
-            '兰州新区',
-            '兰州新区',
-            '兰州新区',
-            '兰州新区',
-            '兰州新区',
-            '兰州新区',
-            '兰州新区'
-          ],
+          data: data.map((i) => i.name),
           axisTick: {
             show: false
           },
@@ -50,12 +53,39 @@ export const AdministerChart = () => {
         series: [
           {
             type: 'bar',
-            data: [10, 20, 36, 41, 15, 26, 37, 18, 29]
+            data: data.map((i) => i.value)
           }
         ]
       })
     );
+  };
+
+  useEffect(() => {
+    myChart.current = echarts.init(divRef.current);
+    renderChart(data);
   }, []);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      const newData = [
+        { name: '城关区', value: random(50) },
+        { name: '七里河区', value: random(50) },
+        { name: '西固区', value: random(50) },
+        { name: '安宁区', value: random(50) },
+        { name: '红谷区', value: random(50) },
+        { name: '永登区', value: random(50) },
+        { name: '皋兰区', value: random(50) },
+        { name: '榆中区', value: random(50) },
+        { name: '兰州新区', value: random(50) }
+      ];
+
+      renderChart(newData);
+    }, 2100);
+
+    return () => {
+      window.clearInterval(timer);
+    };
+  });
 
   return (
     <div className="bordered administer">

@@ -1,15 +1,23 @@
-import React, { useEffect, useRef } from "react";
-import * as echarts from "echarts";
-import { createEchartsOptions } from "../shared/create-echarts-options";
-import { px } from "../shared/px";
+import React, { useEffect, useRef } from 'react';
+import * as echarts from 'echarts';
+import { createEchartsOptions } from '../shared/create-echarts-options';
+import { px } from '../shared/px';
+import { random } from '../shared/random';
 
 export const CaseStreetChart = () => {
   const divRef = useRef(null);
-  const colors = ["#F46064", "#F38E1C", "#1CDB7C", "#8D70F8", "#33A4FA"];
+  const colors = ['#F46064', '#F38E1C', '#1CDB7C', '#8D70F8', '#33A4FA'];
+  const myChart = useRef(null);
 
-  useEffect(() => {
-    var myChart = echarts.init(divRef.current);
-    myChart.setOption(
+  const data = [
+    { value: 0.36, name: '刑事案件' },
+    { value: 0.2, name: '民事案件' },
+    { value: 0.18, name: '经济案件' },
+    { value: 0.24, name: '其他案件' }
+  ];
+
+  const renderChart = (data) => {
+    myChart.current.setOption(
       createEchartsOptions({
         color: colors,
         xAxis: { show: false },
@@ -18,34 +26,53 @@ export const CaseStreetChart = () => {
         series: [
           {
             startAngle: -20,
-            type: "pie",
-            radius: ["25%", "90%"],
+            type: 'pie',
+            radius: ['25%', '90%'],
             avoidLabelOverlap: false,
             label: {
               show: true,
-              position: "outside",
-              textStyle: { color: "white", fontSize: px(20) },
+              position: 'outside',
+              textStyle: { color: 'white', fontSize: px(20) },
               distanceToLabelLine: 0,
               formatter(options) {
-                return options.value * 100 + "%";
-              },
+                console.log(options.value);
+
+                return parseInt(options.value * 100) + '%';
+              }
             },
             labelLine: { show: true, length: 0 },
-            roseType: "area",
+            roseType: 'area',
             itemStyle: {
               shadowBlur: px(200),
-              shadowColor: "rgba(0, 0, 0, 0.5)",
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
             },
-            data: [
-              { value: 0.36, name: "刑事案件" },
-              { value: 0.2, name: "民事案件" },
-              { value: 0.18, name: "经济案件" },
-              { value: 0.24, name: "其他案件" },
-            ],
-          },
-        ],
+            data
+          }
+        ]
       })
     );
+  };
+
+  useEffect(() => {
+    myChart.current = echarts.init(divRef.current);
+    renderChart(data);
+  }, []);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      const newData = [
+        { value: random(0.3), name: '刑事案件' },
+        { value: random(0.3), name: '民事案件' },
+        { value: random(0.3), name: '经济案件' },
+        { value: random(0.3), name: '其他案件' }
+      ];
+
+      renderChart(newData);
+    }, 2100);
+
+    return () => {
+      window.clearInterval(timer);
+    };
   }, []);
   return (
     <div className="age-图1">

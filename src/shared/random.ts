@@ -1,3 +1,3 @@
 export const random = (number: number): number => {
-  return Math.random() * number
-}
+  return Math.random() * number;
+};
